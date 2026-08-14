@@ -1,0 +1,75 @@
+name: Plugin idea
+description: Suggest a new chip, integration, or workflow as a Tinkr plugin.
+title: "[plugin] "
+labels: ["plugin-idea", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the plugin idea! The plugin SDK is MIT and the format is frozen. Most plugins are 1-2 days of work for someone who knows the chip — please mention if you'd be willing to write it (or want to find a collaborator).
+
+  - type: input
+    id: name
+    attributes:
+      label: Plugin name (suggested)
+      description: "e.g., tinkr-stm32, tinkr-particle, tinkr-homeassistant"
+      placeholder: "tinkr-<chip-or-integration>"
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Plugin category
+      options:
+        - Chip family (new board support)
+        - Runtime (new firmware runtime)
+        - Workflow (new top-level command)
+        - Importer (new `tinkr project new --from-<source>`)
+        - Simulator (new `tinkr sim` backend)
+        - AI (new model provider or ideation extension)
+        - Other (please describe)
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What would the plugin do?
+      description: "One paragraph: the user story."
+    validations:
+      required: true
+
+  - type: input
+    id: links
+    attributes:
+      label: Links to docs / vendor / community
+      description: "Chip datasheet, vendor SDK, existing open-source driver, etc."
+
+  - type: textarea
+    id: surface
+    attributes:
+      label: What CLI surface would it expose?
+      description: "Sketch of the commands. e.g., `tinkr stm32 port-scan`, `tinkr stm32 flash`, `tinkr stm32 repl`."
+      placeholder: |
+        $ tinkr <plugin> port-scan
+        $ tinkr <plugin> identify
+        $ tinkr <plugin> flash --firmware <path>
+        $ tinkr <plugin> repl
+
+  - type: checkboxes
+    id: willing
+    attributes:
+      label: Authoring
+      options:
+        - label: I'd be willing to write this plugin
+        - label: I'd be willing to test it
+        - label: I'm just suggesting — someone else should write it
+        - label: I want to find a collaborator
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before filing
+      options:
+        - label: I checked the [plugin roadmap](https://github.com/tinkr-org/tinkr.build/blob/main/PLUGINS.md) and didn't see this planned
+          required: true
+        - label: I searched [plugin discussions](https://github.com/tinkr-org/tinkr.build/discussions/categories/plugin-ideas) and didn't find a duplicate
+          required: true

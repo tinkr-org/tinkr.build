@@ -1,0 +1,60 @@
+name: Feature request
+description: Suggest a new capability or change to an existing one.
+title: "[feature] "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! Please describe what you want, why it matters, and what you imagine the command would look like. The more specific, the faster we can prioritize it.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: "The user story, in your words. What are you trying to do?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Why does it matter?
+      description: "How often does this come up? Who else would benefit?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What have you tried?
+      description: "Any workarounds you have today. Links to docs / issues / discussions welcome."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed
+    attributes:
+      label: What do you imagine the command would look like?
+      description: "Optional but helpful. A sketch of the CLI surface, a mockup, a code snippet — anything that makes the request concrete."
+      placeholder: |
+        $ tinkr <new-command> --flag value
+        # or: a new subcommand group
+        # or: an extension to an existing command
+
+  - type: input
+    id: version
+    attributes:
+      label: Tinkr version you're using
+      placeholder: "0.6.5"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before filing
+      options:
+        - label: I searched [existing discussions](https://github.com/tinkr-org/tinkr.build/discussions/categories/ideas) and didn't find a duplicate
+          required: true
+        - label: I would be willing to submit a PR (great! mention it in the discussion)
+          required: false

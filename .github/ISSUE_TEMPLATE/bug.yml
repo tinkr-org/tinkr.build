@@ -1,0 +1,106 @@
+name: Bug report
+description: Report something that doesn't work the way you expected.
+title: "[bug] "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. A good bug report reproduces in under 5 minutes.
+        Please fill in everything below — the more specific, the faster we can fix it.
+
+  - type: input
+    id: version
+    attributes:
+      label: Tinkr version
+      description: "Output of `tinkr --version`"
+      placeholder: "0.6.5"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS + version
+      description: "e.g., macOS 14.4, Ubuntu 22.04, Windows 11 + WSL2"
+      placeholder: "macOS 14.4"
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      description: "Output of `python3 --version`"
+      placeholder: "3.11.7"
+    validations:
+      required: true
+
+  - type: textarea
+    id: plugins
+    attributes:
+      label: Plugins installed
+      description: "Output of `tinkr plugin list`"
+      placeholder: |
+        1. tinkr-esp32 0.4.2
+        2. tinkr-rp2040 0.1.0
+        3. tinkr-nrf52 0.1.0
+        4. tinkr-micropython-runtime 0.1.0
+        5. tinkr-ideate 0.1.0
+        6. tinkr-project-import 0.3.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: What command did you run?
+      description: "The exact command (use --verbose if possible)"
+      placeholder: |
+        $ tinkr port-scan --verbose
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: "Paste the relevant log lines. Use `tinkr <command> 2>&1 | tee tinkr.log` to capture."
+      render: shell
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: "The minimum steps for someone else to see the same bug. 1, 2, 3..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before filing
+      options:
+        - label: I checked the FAQ in the README and didn't find an answer
+          required: true
+        - label: I searched [existing issues](https://github.com/tinkr-org/tinkr.build/issues) and didn't find a duplicate
+          required: true
+        - label: I can reproduce this on a fresh install (`pip install tinkr-cli==0.6.5`)
+          required: false
+        - label: This is a security issue (please email security@tinkr.build instead)
+          required: false

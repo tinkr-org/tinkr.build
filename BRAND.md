@@ -186,6 +186,31 @@ In addition to the Tinkr mark, do not use the marks of any other product in a wa
 
 ---
 
+### 6. Commit messages
+
+Commit messages in this repo are public. They are part of the project's surface area.
+
+- **Short subjects** (50 chars or less, imperative mood: "Add", "Fix", "Update", not "Added", "Fixes", "Updates")
+- **Body is optional** — if used, keep it brief and describe WHAT the change does, not WHY a maintainer decided to make it
+- **No internal jargon** — no "v0.X.Y" cadence details, no "A-N" decision numbers, no "user feedback", no mentions of internal reviews
+- **No competitor names** — even when describing what was removed or replaced
+- **No "Per user feedback" / "Per maintainer review" / "As discussed"** — these expose internal decision-making to the public
+- **Conventional commits style** is fine: `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`, `ci:`
+
+Good examples:
+- `docs: add brand guidelines`
+- `fix(port-scan): handle missing USB serial on Linux`
+- `feat(plugins): add tinkr-stm32 plugin skeleton`
+
+Bad examples:
+- ❌ `docs(brand): remove all competitor names from public surfaces + add the no-competitor-names rule`
+- ❌ `Per user feedback: 'dont name our compitors' — removed 13 mentions from README, RELEASES, ROADMAP, PLUGINS`
+- ❌ `docs(release): seed README for the public tinkr-org/tinkr.build repo (matches A16 domain)`
+
+When in doubt: keep it short, describe the change, and let the code speak.
+
+---
+
 ## Trademark
 
 "Tinkr" and `t●nkr` are not yet registered trademarks. The amber dot wordmark is the distinctive mark. Don't use it for:
